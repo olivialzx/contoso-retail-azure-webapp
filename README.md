@@ -1,6 +1,9 @@
 CONTOSO RETAIL
 AZURE CLOUD ENGINEERING PROJECT
 
+
+
+
 PROJECT SUMMARY
 
 The Contoso Retail project is an end-to-end Azure cloud environment built to demonstrate the deployment, security, monitoring, backup, governance, and cost management of a retail web application.
@@ -8,6 +11,9 @@ The Contoso Retail project is an end-to-end Azure cloud environment built to dem
 The project combines Azure PaaS and IaaS services.
 
 The customer-facing application is hosted on Azure App Service and deployed from GitHub. A Linux Virtual Machine provides the backend infrastructure workload. Azure SQL Database and Azure Storage provide managed data services. Azure Key Vault and Managed Identity provide secure secret management. Azure RBAC, NSG, Bastion, Defender for Cloud, and Azure Policy provide access and security controls. Azure Monitor, Application Insights, alerts, backup, Cost Management, and Azure Advisor provide operational management.
+
+
+
 
 PROJECT ARCHITECTURE
 
@@ -149,17 +155,33 @@ Azure Advisor
   +---- Performance recommendations
 
 
+
+
 RESOURCE ORGANIZATION
 
 Resource Groups were used to logically organize the Azure environment.
+rg-contoso-network
 
-rg-contoso-compute
+Used for: VNet, subnets, NSGs, route tables, Azure Bastion, public IPs.
 
-Used for compute and application-related resources.
+rg-contoso-app
 
-contoso-data
+Used for: App Service, App Service Plan, VM, Application Gateway / Load Balancer.
 
-Used for data-related resources including Azure SQL.
+rg-contoso-data
+
+Used for: Azure SQL Database, SQL Server, Storage Account, Blob containers.
+
+rg-contoso-security
+
+Used for: Key Vault, Defender for Cloud and security-related resources.
+
+rg-contoso-monitoring
+
+Used for: Log Analytics Workspace, Application Insights, Azure Monitor alerts, Action Groups and dashboards.
+
+
+
 
 NETWORKING
 
@@ -177,6 +199,9 @@ Backend Subnet:
 
 The network was divided into frontend and backend segments to provide logical network separation.
 
+
+
+
 COMPUTE
 
 Azure App Service:
@@ -192,6 +217,9 @@ vm-contoso-backend393
 Provides the backend IaaS workload.
 
 Azure Bastion provides secure administrative access to the VM.
+
+
+
 
 STORAGE AND DATABASE
 
@@ -210,9 +238,14 @@ contoso-retail-db
 
 The SQL Database uses the General Purpose Serverless model with 1 vCore.
 
+
+
+
 APPLICATION DEPLOYMENT
 
 The application source code was maintained in GitHub and deployed to Azure App Service.
+
+
 
 Deployment flow:
 
@@ -223,6 +256,9 @@ Azure App Service
   |
   v
 Running Python Web Application
+
+
+
 
 SECURITY
 
@@ -242,6 +278,8 @@ Microsoft Defender for Cloud provides security posture recommendations.
 
 Azure Policy provides governance and resource compliance.
 
+
+
 MONITORING
 
 Application Insights was enabled for the App Service to provide application telemetry.
@@ -251,6 +289,8 @@ Azure Monitor was used for infrastructure monitoring and VM metrics.
 A CPU alert was configured with an 80 percent threshold.
 
 The alert triggers an Action Group that sends an email notification.
+
+
 
 BACKUP
 
@@ -266,6 +306,8 @@ Recovery Services Vault
   v
 Recovery Point
 
+
+
 GOVERNANCE AND COST MANAGEMENT
 
 Azure Policy was configured for governance requirements such as resource tagging.
@@ -275,6 +317,12 @@ Cost Management was configured with a $50 monthly demonstration budget.
 Alert thresholds were configured at 80 percent and 100 percent.
 
 Azure Advisor was reviewed for recommendations related to cost, security, reliability, and performance.
+
+
+
+
+
+
 
 PROJECT IMPLEMENTATION FLOW
 
@@ -324,6 +372,10 @@ PROJECT IMPLEMENTATION FLOW
 
 23. Reviewed VM metrics and validated the deployed environment.
 
+
+
+
+
 AZURE SERVICES USED
 
 Compute:
@@ -369,6 +421,11 @@ Azure Advisor
 Deployment:
 GitHub
 
+
+
+
+
+
 PROJECT OUTCOME
 
 The completed Contoso Retail environment demonstrates the practical responsibilities of an Azure Cloud Engineer:
@@ -391,6 +448,9 @@ Governance
 Cost management
 Cloud optimization
 
+
+
+
 The project demonstrates the complete cloud workload lifecycle:
 
 PLAN
@@ -412,6 +472,9 @@ GOVERN
 OPTIMIZE
   |
 DOCUMENT
+
+
+
 
 PROJECT EVIDENCE
 
